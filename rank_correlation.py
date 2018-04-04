@@ -205,3 +205,9 @@ def mp_pa_main(number_of_workers=4,
         sys.exit(1)
     except Exception as e:
         raise e
+
+
+if __name__ == '__main__':
+    logger = logging.getLogger()
+    logging.basicConfig(level=logging.DEBUG)
+    mp_pa_main()
