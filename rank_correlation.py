@@ -5,11 +5,45 @@ from scipy import stats
 from multiprocessing import Process, Manager
 from queue import Empty
 import pickle
-
+import time
+import parse
 import logging
 import sys
+from os.path import join
+from os import listdir
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
+FILENAME_PATTERN = 'n_{}_md_{}_{}_{}.pkl'
+N =np.logspace(10, 20, 11, base=2).astype(int)
+MD=[1, 10]
+MODELS = ['pa', 'configuration']
+
+
+def gen_filename(n, md, model, data_dir='pkls'):
+    filename = FILENAME_PATTERN.format(n, md, model, int(time.time()))
+    return join(data_dir, filename)
+
+def parse_filename(filename):
+    filename = Path(filename).resolve().stem
+    n, md, model, t = parse.parse(FILENAME_PATTERN, filename)
+    return (int(n), int(md), model, int(t))
+
+def parse_results(data_dir='pkls', validate_num_keys=17):
+    r = []
+    for filename in listdir(data_dir):
+        filename = join(data_dir, filename)
+        if filename.endswith('.pkl'):
+            with open(filename, 'rb') as f:
+                loaded_r = pickle.load(f)
+            if len(loaded_r) == validate_num_keys:
+                r.append(loaded_r)
+            else:
+                logger.warning('Insufficient number of keys of results: %s',
+                        filename)
+        else:
+            logger.warning('Note a pickle file, should end with .pkl')
+    return pd.DataFrame(r)
 
 
 def half_swap(df):
@@ -55,18 +89,6 @@ def average_path(g):
     return sum([sum(v) for v in dist]) / (n * (n - 1))
 
 
-def g_stats(g):
-    return dict(
-        n=g.num_vertices(),
-        m=g.num_edges(),
-        # l=average_path(g),
-        r_a=gt.assortativity(g, 'total'),
-        rho_a=rank_assortativity(g, method='spearman'),
-        tau_a=rank_assortativity(g, method='kendall'),
-        # cc=gt.global_clustering(g)
-        )
-
-
 def g_centrality_correlations(g):
     dgr = g.degree_property_map('total').a
     dgr = dgr / (g.num_vertices() - 1)
@@ -89,160 +111,47 @@ def g_centrality_correlations(g):
         de_k=stats.kendalltau(dgr, egn))
 
 
-def producer_queue(q1, N, M_delta):
-    for i in range(10):
-        for n in N:
-            for m_delta in M_delta:
-                q1.put((n, m_delta, 'pa'))
-                q1.put((n, m_delta, 'configuration'))
-    logger.info('All parameters are put into q1.')
-    logger.info('N=%s', N)
-    logger.info('M_delta=%s', M_delta)
-
-
-def workers_queue(pid, q1, q2):
-    while True:
-        try:
-            data = q1.get(timeout=1)
-        except Empty:
-            logger.info('Work process %s idles for 1 second, stop it!', pid)
-            q2.put((pid, None, 'STOP'))
-            break
-        if data == 'STOP':
-            logger.info('Work process %i received STOP!', pid)
-            q1.put('STOP')
-            q2.put((pid, None, 'STOP'))
-            break
-        n, m_delta, model = data
-        g = gt.price_network(
-            N=n,
-            m=m_delta,
-            gamma=1,
-            seed_graph=gt.complete_graph(N=m_delta))
-        if model == 'configuration':
-            gt.random_rewire(g, model='configuration')
-        try:
-            r1 = g_stats(g)
-            r = g_centrality_correlations(g)
-            r['n'] = n
-            r['m_delta'] = m_delta
-            r['model'] = model
-            for k, v in r1.items():
-                r[k] = v
-        except Exception as e:
-            logger.error(e)
-            r = dict(n=n, m_delta=m_delta, model=model)
-        q2.put((pid, r, 'RUN'))
-
-
-def collector_queue(q2, number_of_workers, filename):
-    rs = []
-    workers_status = [1 for i in range(number_of_workers)]
-    while True:
-        pid, r, status = q2.get()
-        if status == 'STOP':
-            logger.info(
-                'Collector process: STOP sign of worker process %s received from q2',
-                pid)
-            workers_status[pid] = 0
-            if sum(workers_status) == 0:
-                logger.warning('All STOP signs received from q2.')
-                logger.warning('Results collected and saved!')
-                break
-        else:
-            logger.info('Collector process: receiving result from %s', pid)
-            rs.append(r)
-            logger.info('Dumping current results!')
-            with open(filename, 'wb') as f:
-                pickle.dump(rs, f, -1)
-
-
-class PaManager(object):
-
-    def __init__(self, number_of_workers, filename, N, M_delta):
-        self.manager = Manager()
-        self.q1 = self.manager.Queue()
-        self.q2 = self.manager.Queue()
-        self.number_of_workers = number_of_workers
-        self.filename = filename
-        self.N = N
-        self.M_delta = M_delta
-
-    def start(self):
-        self.producer = Process(
-            target=producer_queue, args=(self.q1, self.N, self.M_delta))
-        self.producer.start()
-
-        self.workers = [
-            Process(target=workers_queue, args=(i, self.q1, self.q2))
-            for i in range(self.number_of_workers)
-        ]
-        for workers in self.workers:
-            workers.start()
-
-        self.collector = Process(
-            target=collector_queue,
-            args=(self.q2, self.number_of_workers, self.filename))
-        self.collector.start()
-
-    def join(self):
-        self.producer.join()
-        for workers in self.workers:
-            workers.join()
-        self.collector.join()
-
-
-def mp_pa_main(number_of_workers=4,
-               filename='pa.pkl',
-               N=np.logspace(10, 24, 14, base=2).astype(int),
-               M_delta=[1, 10]):
+def g_one_main(n, md, model, to_pickle=True, data_dir='pkls'):
+    r = dict()
+    g = gt.price_network(
+        N=n,
+        m=md,
+        gamma=1,
+        directed=False,
+        seed_graph=gt.complete_graph(N=md+1))
+    if model == 'configuration':
+        gt.random_rewire(g, model='configuration')
+    r['N'] = n
+    r['md'] = md
+    r['model'] = model
     try:
-        manager = PaManager(
-            number_of_workers=number_of_workers,
-            filename=filename,
-            N=N,
-            M_delta=M_delta)
-        manager.start()
-        manager.join()
-    except (KeyboardInterrupt, SystemExit):
-        logger.info('interrupt signal received')
-        sys.exit(1)
+        r.update(dict(
+            n=g.num_vertices(),
+            m=g.num_edges(),
+            # l=average_path(g),
+            # cc=gt.global_clustering(g)
+            r_a=gt.assortativity(g, 'total'),
+            rho_a=rank_assortativity(g, method='spearman'),
+            tau_a=rank_assortativity(g, method='kendall')
+            ) )
+        r.update(g_centrality_correlations(g))
     except Exception as e:
-        raise e
+        logger.error(e)
+    if to_pickle is True:
+        filename = gen_filename(n, md, model, data_dir)
+        with open(filename, 'wb') as f:
+            pickle.dump(r, f, -1)
+    return r
 
 
-def pa_main(
-               N=np.logspace(10, 21, 12, base=2).astype(int),
-               M_delta=[1, 10],
-               filename='pa.pkl'):
-    rs = []
-    for n in N:
-        for m_delta in M_delta:
-            for model in ['pa', 'configuration']:
-                logger.info('current settings: n=%s, m_delta=%s, model=%s',
-                        n, m_delta, model)
-                g = gt.price_network(
-                    N=n,
-                    m=m_delta,
-                    gamma=1,
-                    seed_graph=gt.complete_graph(N=m_delta))
-                if model == 'configuration':
-                    gt.random_rewire(g, model='configuration')
-                try:
-                    r1 = g_stats(g)
-                    r = g_centrality_correlations(g)
-                    r['N'] = n
-                    r['m_delta'] = m_delta
-                    r['model'] = model
-                    for k, v in r1.items():
-                        r[k] = v
-                except Exception as e:
-                    logger.error(e)
-                    r = dict(n=n, m_delta=m_delta, model=model)
-                rs.append(r)
-                with open(filename, 'wb') as f:
-                    pickle.dump(rs, f, -1)
-
+def pa_main(nround=10):
+    for r in range(nround):
+        for n in N:
+            for md in MD:
+                for model in MODELS:
+                    logger.info('Current graph settings: N=%s, md=%r, model=%s',
+                            n, md, model)
+                    g_one_main(n, md, model)
 
 if __name__ == '__main__':
     logger = logging.getLogger()
