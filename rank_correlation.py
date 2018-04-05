@@ -128,7 +128,7 @@ def workers_queue(pid, q1, q2):
             r['m_delta'] = m_delta
             r['model'] = model
             for k, v in r1.items():
-                r[k] = k
+                r[k] = v
         except Exception as e:
             logger.error(e)
             r = dict(n=n, m_delta=m_delta, model=model)
@@ -211,7 +211,41 @@ def mp_pa_main(number_of_workers=4,
         raise e
 
 
+def pa_main(
+               N=np.logspace(10, 21, 12, base=2).astype(int),
+               M_delta=[1, 10],
+               filename='pa.pkl'):
+    rs = []
+    for n in N:
+        for m_delta in M_delta:
+            for model in ['pa', 'configuration']:
+                logger.info('current settings: n=%s, m_delta=%s, model=%s',
+                        n, m_delta, model)
+                g = gt.price_network(
+                    N=n,
+                    m=m_delta,
+                    gamma=1,
+                    seed_graph=gt.complete_graph(N=m_delta))
+                if model == 'configuration':
+                    gt.random_rewire(g, model='configuration')
+                try:
+                    r1 = g_stats(g)
+                    r = g_centrality_correlations(g)
+                    r['N'] = n
+                    r['m_delta'] = m_delta
+                    r['model'] = model
+                    for k, v in r1.items():
+                        r[k] = v
+                except Exception as e:
+                    logger.error(e)
+                    r = dict(n=n, m_delta=m_delta, model=model)
+                rs.append(r)
+                with open(filename, 'wb') as f:
+                    pickle.dump(rs, f, -1)
+
+
 if __name__ == '__main__':
     logger = logging.getLogger()
     logging.basicConfig(level=logging.DEBUG)
-    mp_pa_main()
+    # mp_pa_main()
+    pa_main()
