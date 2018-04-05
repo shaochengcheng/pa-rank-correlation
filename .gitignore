@@ -101,3 +101,7 @@ ENV/
 .mypy_cache/
 
 test.pkl
+
+# big-red2 logs
+pa-rank-correlation.e*
+pa-rank-correlation.o*

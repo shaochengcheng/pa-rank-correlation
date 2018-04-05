@@ -27,7 +27,7 @@ def pa_mpi():
     rank = comm.Get_rank()
 
     if rank == 0:
-        N = np.logspace(10, 12, 3, base=2)
+        N = np.logspace(13, 24, 12, base=2)
         MD = [1, 10]
         MODELS = ['pa', 'configuration']
         data = [(n, md, model)
