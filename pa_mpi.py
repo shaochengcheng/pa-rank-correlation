@@ -37,7 +37,7 @@ def pa_mpi():
         data = None
     sub_data = comm.scatter(data, root=0)
     for params in sub_data:
-        print('Process:%s is doing task of graph %s', params)
+        # print('Process:%s is doing task of graph %s', rank, params)
         g_one_main(*params)
 
 
