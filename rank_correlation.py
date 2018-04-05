@@ -153,8 +153,28 @@ def pa_main(nround=10):
                             n, md, model)
                     g_one_main(n, md, model)
 
+
+def gen_bigred2_batch(filename='bg2_batch_params.txt',
+            N=np.logspace(21, 24, 4, base=2).astype(int),
+            nrounds=10):
+    with open(filename, 'w') as f:
+        for r in range(nrounds):
+            for n in N:
+                for md in MD:
+                    for model in MODELS:
+                        f.write('python rank_correlation.py {} {} {}\n'.format(
+                            n, md, model))
+
+
 if __name__ == '__main__':
     logger = logging.getLogger()
     logging.basicConfig(level=logging.DEBUG)
-    # mp_pa_main()
-    pa_main()
+    if len(sys.argv) == 1:
+        logger.info('Run for all N')
+        pa_main()
+    elif len(sys.argv) == 4:
+        logger.info('Run for one instance')
+        n = int(sys.argv[1])
+        md = int(sys.argv[2])
+        model = sys.argv[3]
+        g_one_main(n, md, model)
