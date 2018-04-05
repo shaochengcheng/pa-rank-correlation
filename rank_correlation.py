@@ -59,11 +59,12 @@ def g_stats(g):
     return dict(
         n=g.num_vertices(),
         m=g.num_edges(),
-        l=average_path(g),
+        # l=average_path(g),
         r_a=gt.assortativity(g, 'total'),
         rho_a=rank_assortativity(g, method='spearman'),
         tau_a=rank_assortativity(g, method='kendall'),
-        cc=gt.global_clustering(g),)
+        # cc=gt.global_clustering(g)
+        )
 
 
 def g_centrality_correlations(g):
@@ -73,10 +74,10 @@ def g_centrality_correlations(g):
     cln = gt.closeness(g, norm=True, harmonic=False).a
     egn = gt.eigenvector(g)[1].a
     return dict(
-        dgr=dgr,
-        btn=btn,
-        cln=cln,
-        egn=egn,
+        # dgr=dgr,
+        # btn=btn,
+        # cln=cln,
+        # egn=egn,
         db_p=stats.pearsonr(dgr, btn),
         dc_p=stats.pearsonr(dgr, cln),
         de_p=stats.pearsonr(dgr, egn),
@@ -89,10 +90,11 @@ def g_centrality_correlations(g):
 
 
 def producer_queue(q1, N, M_delta):
-    for n in N:
-        for m_delta in M_delta:
-            q1.put((n, m_delta, 'pa'))
-            q1.put((n, m_delta, 'configuration'))
+    for i in range(10):
+        for n in N:
+            for m_delta in M_delta:
+                q1.put((n, m_delta, 'pa'))
+                q1.put((n, m_delta, 'configuration'))
     logger.info('All parameters are put into q1.')
     logger.info('N=%s', N)
     logger.info('M_delta=%s', M_delta)
@@ -145,12 +147,14 @@ def collector_queue(q2, number_of_workers, filename):
             workers_status[pid] = 0
             if sum(workers_status) == 0:
                 logger.warning('All STOP signs received from q2.')
-                pickle.dump(rs, filename, -1)
                 logger.warning('Results collected and saved!')
                 break
         else:
             logger.info('Collector process: receiving result from %s', pid)
             rs.append(r)
+            logger.info('Dumping current results!')
+            with open(filename, 'wb') as f:
+                pickle.dump(rs, f, -1)
 
 
 class PaManager(object):
@@ -190,7 +194,7 @@ class PaManager(object):
 
 def mp_pa_main(number_of_workers=4,
                filename='pa.pkl',
-               N=np.logspace(10, 16, 6, base=2).astype(int),
+               N=np.logspace(10, 24, 14, base=2).astype(int),
                M_delta=[1, 10]):
     try:
         manager = PaManager(
