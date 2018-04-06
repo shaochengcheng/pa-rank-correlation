@@ -1,0 +1,22 @@
+anaconda3 version 4.4.0 loaded.
+ModuleCmd_Switch.c(172):ERROR:152: Module 'PrgEnv-cray' is currently not loaded
+“openmpi” version “1.8.4” loaded.
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+Traceback (most recent call last):
+  File "pa_mpi.py", line 45, in <module>
+    pa_mpi()
+  File "pa_mpi.py", line 38, in pa_mpi
+    sub_data = comm.scatter(data, root=0)
+  File "MPI/Comm.pyx", line 1286, in mpi4py.MPI.Comm.scatter (src/mpi4py.MPI.c:109079)
+  File "MPI/msgpickle.pxi", line 707, in mpi4py.MPI.PyMPI_scatter (src/mpi4py.MPI.c:48114)
+  File "MPI/msgpickle.pxi", line 161, in mpi4py.MPI.Pickle.dumpv (src/mpi4py.MPI.c:41605)
+ValueError: expecting 128 items, got 1
+=>> PBS: job killed: walltime 1843 exceeded limit 1800
+aprun: Apid 15488701: Caught signal Terminated, sending to application

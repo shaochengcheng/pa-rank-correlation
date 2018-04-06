@@ -1,0 +1,7 @@
+Application 15489770 exit signals: Killed
+Application 15489770 resources: utime ~0s, stime ~0s, Rss ~5316, inblocks ~2182, outblocks ~16
+Job Cleanup ran on Thu Apr 5 22:17:08 EDT 2018
+===============================
+submit_args  : 	 submit_args = bg2_ccm.pbs
+NIDS         : 	 27,29,42,62
+NID Placement: 	 27/32 29/32 42/32 62/32 

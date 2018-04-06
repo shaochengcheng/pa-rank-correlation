@@ -1,0 +1,130 @@
+anaconda3 version 4.4.0 loaded.
+“openmpi” version “1.8.4” loaded.
+Warning: Permanently added '[nid00027]:203,[10.128.0.28]:203' (ECDSA) to the list of known hosts.
+Warning: Permanently added '[nid00029]:203,[10.128.0.30]:203' (ECDSA) to the list of known hosts.
+Warning: Permanently added '[nid00042]:203,[10.128.0.43]:203' (ECDSA) to the list of known hosts.
+anaconda3 version 4.4.0 loaded.
+anaconda3 version 4.4.0 loaded.
+anaconda3 version 4.4.0 loaded.
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/draw/cairo_draw.py:39: RuntimeWarning: Error importing cairo. Graph drawing will not work.
+  warnings.warn(msg, RuntimeWarning)
+/N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
+  warnings.warn(msg, RuntimeWarning)
+[NID 00062] 2018-04-05 22:17:05 Apid 15489770: initiated application termination
+[NID 00062] 2018-04-05 22:17:08 Apid 15489770: OOM killer terminated this process.
