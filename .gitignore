@@ -103,5 +103,7 @@ ENV/
 test.pkl
 
 # big-red2 logs
-pa-rank-correlation.e*
-pa-rank-correlation.o*
+*pa-rank-correlation.e*
+*pa-rank-correlation.o*
+
+.*.swp
