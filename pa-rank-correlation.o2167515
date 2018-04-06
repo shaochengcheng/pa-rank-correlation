@@ -1,0 +1,5 @@
+Job Cleanup ran on Fri Apr 6 01:24:29 EDT 2018
+===============================
+submit_args  : 	 submit_args = bg2_ccm_single.pbs
+NIDS         : 	 876-877,882-883
+NID Placement: 	 876/32 877/32 882/32 883/32 

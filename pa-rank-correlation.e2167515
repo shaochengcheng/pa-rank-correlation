@@ -1,3 +1,5 @@
 anaconda3 version 4.4.0 loaded.
 ModuleCmd_Switch.c(172):ERROR:152: Module 'PrgEnv-cray' is currently not loaded
 “openmpi” version “1.8.4” loaded.
+aprun: Apid 15490309: Caught signal Terminated, sending to application
+=>> PBS: job killed: walltime 3898 exceeded limit 3600
