@@ -1,0 +1,4 @@
+anaconda3 version 4.4.0 loaded.
+“openmpi” version “1.8.4” loaded.
+[NID 00004] 2018-04-06 11:10:52 Apid 15491814: initiated application termination
+[NID 00004] 2018-04-06 11:10:54 Apid 15491814: OOM killer terminated this process.
