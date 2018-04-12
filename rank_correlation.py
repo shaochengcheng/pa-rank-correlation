@@ -43,7 +43,9 @@ def parse_results(data_dir='pkls', validate_num_keys=17):
                         filename)
         else:
             logger.warning('Note a pickle file, should end with .pkl')
-    return pd.DataFrame(r)
+    df = pd.DataFrame(r)
+    df['N'] = df.N.astype(int)
+    return df
 
 
 def half_swap(df):
