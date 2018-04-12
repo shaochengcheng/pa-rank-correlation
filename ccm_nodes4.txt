@@ -1,0 +1,2 @@
+Application 15491814 exit signals: Killed
+Application 15491814 resources: utime ~0s, stime ~1s, Rss ~5312, inblocks ~4405, outblocks ~72

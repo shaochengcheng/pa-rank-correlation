@@ -1,0 +1,4 @@
+anaconda3 version 4.4.0 loaded.
+ModuleCmd_Switch.c(172):ERROR:152: Module 'PrgEnv-cray' is currently not loaded
+“openmpi” version “1.8.4” loaded.
+python: can't open file 'pa_test': [Errno 2] No such file or directory

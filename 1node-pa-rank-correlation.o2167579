@@ -1,0 +1,5 @@
+Job Cleanup ran on Fri Apr 6 08:49:34 EDT 2018
+===============================
+submit_args  : 	 walltime=04:00:00 bg2_ccm_1node.pbs
+NIDS         : 	 5
+NID Placement: 	 5/32 

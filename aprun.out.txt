@@ -1,0 +1,2 @@
+Application 15490027 exit codes: 127
+Application 15490027 resources: utime ~0s, stime ~0s, Rss ~5308, inblocks ~152, outblocks ~232

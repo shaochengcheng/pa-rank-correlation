@@ -1,0 +1,8 @@
+anaconda3 version 4.4.0 loaded.
+“openmpi” version “1.8.4” loaded.
+[mpiexec@nid00878] HYDU_set_int (./utils/args/args.c:176): duplicate setting: N
+[mpiexec@nid00878] np_fn (./ui/mpich/utils.c:659): error getting executable process count
+[mpiexec@nid00878] match_arg (./utils/args/args.c:115): match handler returned error
+[mpiexec@nid00878] HYDU_parse_array (./utils/args/args.c:140): argument matching returned error
+[mpiexec@nid00878] parse_args (./ui/mpich/utils.c:1387): error parsing input array
+[mpiexec@nid00878] HYD_uii_mpx_get_parameters (./ui/mpich/utils.c:1438): unable to parse user arguments

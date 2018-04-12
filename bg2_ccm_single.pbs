@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -l nodes=8:ppn=32
+#PBS -l walltime=24:00:00
+#PBS -N pa-rank-correlation
+#PBS -q cpu
+#PBS -V
+#PBS -l gres=ccm
+
+module swap PrgEnv-cray PrgEnv-gnu
+module load ccm
+module load openmpi/ccm/gnu/1.8.4
+source activate gtpy3
+cd /N/u/shaoc/BigRed2/repos/pa-rank-correlation
+
+ccmrun mpirun -np 8  python pa_mpi.py > ccm_nodes4.txt
+

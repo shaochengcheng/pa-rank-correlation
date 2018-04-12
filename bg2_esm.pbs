@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -l nodes=8:ppn=32
+#PBS -l walltime=1:00:00
+#PBS -N esm-pa-rank-correlation
+#PBS -q cpu
+#PBS -V
+
+module swap PrgEnv-cray PrgEnv-gnu
+source activate gtpy3
+cd /N/u/shaoc/BigRed2/repos/pa-rank-correlation
+
+export OMP_NUM_THREADS=32
+
+aprun -n 8 -N 1 -d 32 python pa_mpi.py > aprun.out.txt
+
