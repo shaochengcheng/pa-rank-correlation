@@ -8,3 +8,5 @@ anaconda3 version 4.4.0 loaded.
   warnings.warn(msg, RuntimeWarning)
 /N/u/shaoc/BigRed2/.conda_envs/gtpy3/lib/python3.6/site-packages/graph_tool/all.py:40: RuntimeWarning: Error importing draw module, proceeding nevertheless: /usr/lib64/libxcb-xlib.so.0: undefined symbol: _xcb_unlock_io
   warnings.warn(msg, RuntimeWarning)
+=>> PBS: job killed: walltime 345666 exceeded limit 345600
+aprun: Apid 15496424: Caught signal Terminated, sending to application
