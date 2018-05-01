@@ -1,5 +1,0 @@
-Job Cleanup ran on Fri Apr 6 01:10:33 EDT 2018
-===============================
-submit_args  : 	 submit_args = -q debug_cpu bg2_ccm_1node.pbs
-NIDS         : 	 900
-NID Placement: 	 900/32 

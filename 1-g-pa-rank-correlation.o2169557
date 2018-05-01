@@ -1,7 +1,0 @@
-Application 15498056 exit codes: 1
-Application 15498056 resources: utime ~1s, stime ~1s, Rss ~97964, inblocks ~28880, outblocks ~2184
-Job Cleanup ran on Sun Apr 8 21:14:07 EDT 2018
-===============================
-submit_args  : 	 submit_args = -q debug_cpu -l walltime=00:20:00 bg2_ccm1.pbs
-NIDS         : 	 900
-NID Placement: 	 900/32 

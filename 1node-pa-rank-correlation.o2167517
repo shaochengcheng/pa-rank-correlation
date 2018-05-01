@@ -1,7 +1,0 @@
-Application 15490308 exit codes: 2
-Application 15490308 resources: utime ~0s, stime ~0s, Rss ~6568, inblocks ~1562, outblocks ~1
-Job Cleanup ran on Fri Apr 6 00:19:54 EDT 2018
-===============================
-submit_args  : 	 submit_args = bg2_ccm_1node.pbs
-NIDS         : 	 911
-NID Placement: 	 911/32 

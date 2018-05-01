@@ -1,5 +1,0 @@
-Job Cleanup ran on Thu Apr 5 23:24:48 EDT 2018
-===============================
-submit_args  : 	 submit_args = bg2_esm.pbs
-NIDS         : 	 6-7,10,14,17-18,24,27
-NID Placement: 	 6/32 7/32 10/32 14/32 17/32 18/32 24/32 27/32 
