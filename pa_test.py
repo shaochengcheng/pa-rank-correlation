@@ -5,7 +5,7 @@ import sys
 def main_test(N, nrounds=1):
     n = 2**N
     for i in range(nrounds):
-        for md in (1, 10):
+        for md in (5, ):
             for model in ('pa', 'configuration'):
                 g_one_main(n, md, model)
 
