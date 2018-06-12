@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -l nodes=1:ppn=32
-#PBS -l walltime=168:00:00
-#PBS -N 20-5-configuration-rank-correlation
+#PBS -l walltime=24:00:00
+#PBS -N rounds-14-25-rank-correlation
 #PBS -q cpu
 #PBS -V
 #PBS -l gres=ccm
@@ -12,5 +12,5 @@ module load openmpi/ccm/gnu/1.8.4
 source activate gtpy3
 cd /N/u/shaoc/BigRed2/repos/pa-rank-correlation
 
-ccmrun python pa_1g.py 20 5 configuration 
+ccmrun python pa_test_2.py 14 25
 
