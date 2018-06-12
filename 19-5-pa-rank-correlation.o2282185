@@ -1,0 +1,7 @@
+Application 15774981 network quiesced: 1 node quiesced, 00:00:51 node-seconds
+Application 15774981 resources: utime ~1648872s, stime ~24896s, Rss ~7797812, inblocks ~28881, outblocks ~2186
+Job Cleanup ran on Mon Jun 11 09:36:49 EDT 2018
+===============================
+submit_args  : 	 submit_args = bg2_ccm-19-5-pa.pbs
+NIDS         : 	 785
+NID Placement: 	 785/32 
