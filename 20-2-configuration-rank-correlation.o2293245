@@ -1,0 +1,6 @@
+Application 15808165 resources: utime ~4617817s, stime ~159855s, Rss ~7160060, inblocks ~28885, outblocks ~2186
+Job Cleanup ran on Thu Jun 21 18:28:30 EDT 2018
+===============================
+submit_args  : 	 submit_args = bg2_ccm-20-2-configuration.pbs
+NIDS         : 	 58
+NID Placement: 	 58/32 
