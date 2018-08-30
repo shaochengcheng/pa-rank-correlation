@@ -103,10 +103,11 @@ def plot_offset_ccdf(fn='data/offset.csv'):
     plt.savefig(output)
 
 
-def centrality_rank_correlation(size=20):
-    output = 'ba-centrality-rank-correlation.pdf'
+def centrality_rank_correlation(size=20, md2=2):
+    output = 'ba-centrality-rank-correlation-md-{}.pdf'.format(md2)
 
     df = parse_results()
+    import ipdb; ipdb.set_trace()
     df = df.groupby(['N', 'md', 'model']).head(size)
 
     for col in [
@@ -115,12 +116,11 @@ def centrality_rank_correlation(size=20):
     ]:
         df.loc[:, col] = df[col].apply(lambda x: x[0])
     df = df.sort_values('N')
-    # import ipdb; ipdb.set_trace()
     gps = df.groupby(['md', 'model'])
     gp0 = gps.get_group((1, 'pa'))
-    gp1 = gps.get_group((10, 'pa'))
+    gp1 = gps.get_group((md2, 'pa'))
     gp2 = gps.get_group((1, 'configuration'))
-    gp3 = gps.get_group((10, 'configuration'))
+    gp3 = gps.get_group((md2, 'configuration'))
 
     fig, axes = plt.subplots(4, 3, figsize=(8, 9), sharex=True, sharey=True)
     r0 = 0
@@ -237,10 +237,10 @@ def centrality_rank_correlation(size=20):
     set_cell_of_1st_row(axes[r0 + 0, c0 + 0], '$corr(D, B)$')
     set_cell_of_1st_row(axes[r0 + 0, c0 + 1], '$corr(D, C)$')
     set_cell_of_1st_row(axes[r0 + 0, c0 + 2], '$corr(D, E)$')
-    set_cell_of_1st_column(axes[r0 + 0, c0], 'BA, $\Delta m=1$  ')
-    set_cell_of_1st_column(axes[r0 + 1, c0], 'BA, $\Delta m=10$ ')
-    set_cell_of_1st_column(axes[r0 + 2, c0], 'BAC, $\Delta m=1$ ')
-    set_cell_of_1st_column(axes[r0 + 3, c0], 'BAC, $\Delta m=10$')
+    set_cell_of_1st_column(axes[r0 + 0, c0], 'BA, $\Delta m=1$')
+    set_cell_of_1st_column(axes[r0 + 1, c0], 'BA, $\Delta m={}$'.format(md2))
+    set_cell_of_1st_column(axes[r0 + 2, c0], 'BAC, $\Delta m=1$')
+    set_cell_of_1st_column(axes[r0 + 3, c0], 'BAC, $\Delta m={}$'.format(md2))
     plt.tight_layout(rect=[0.12, 0, 1.02, 0.95])
     plt.savefig(output)
 
