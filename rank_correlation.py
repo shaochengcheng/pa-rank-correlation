@@ -1,4 +1,7 @@
-import graph_tool.all as gt
+try:
+    import graph_tool.all as gt
+except ImportError:
+    print('Warning: graph_tool not installed')
 import numpy as np
 import pandas as pd
 from scipy import stats

@@ -103,11 +103,9 @@ def plot_offset_ccdf(fn='data/offset.csv'):
     plt.savefig(output)
 
 
-def centrality_rank_correlation(size=20, md2=2):
-    output = 'ba-centrality-rank-correlation-md-{}.pdf'.format(md2)
-
+def centrality_rank_correlation(size=20, md1=1, md2=2):
+    output = 'ba-centrality-rank-correlation-md-{}-{}.pdf'.format(md1, md2)
     df = parse_results()
-    import ipdb; ipdb.set_trace()
     df = df.groupby(['N', 'md', 'model']).head(size)
 
     for col in [
@@ -117,10 +115,11 @@ def centrality_rank_correlation(size=20, md2=2):
         df.loc[:, col] = df[col].apply(lambda x: x[0])
     df = df.sort_values('N')
     gps = df.groupby(['md', 'model'])
-    gp0 = gps.get_group((1, 'pa'))
-    gp1 = gps.get_group((md2, 'pa'))
-    gp2 = gps.get_group((1, 'configuration'))
+    gp0 = gps.get_group((md1, 'pa'))
+    gp1 = gps.get_group((md1, 'configuration'))
+    gp2 = gps.get_group((md2, 'pa'))
     gp3 = gps.get_group((md2, 'configuration'))
+    # import ipdb; ipdb.set_trace()
 
     fig, axes = plt.subplots(4, 3, figsize=(8, 9), sharex=True, sharey=True)
     r0 = 0
@@ -141,7 +140,7 @@ def centrality_rank_correlation(size=20, md2=2):
                 label = r"Kendall's $\tau$"
             Y_data = gp[coef_pre + post].values.reshape(-1, size)
             Y = Y_data.mean(axis=1)
-            Y_e = Y_data.std(ddof=1, axis=1)
+            Y_e = 2 * Y_data.std(ddof=1, axis=1)
             eb = ax.errorbar(
                 X,
                 Y,
@@ -237,9 +236,9 @@ def centrality_rank_correlation(size=20, md2=2):
     set_cell_of_1st_row(axes[r0 + 0, c0 + 0], '$corr(D, B)$')
     set_cell_of_1st_row(axes[r0 + 0, c0 + 1], '$corr(D, C)$')
     set_cell_of_1st_row(axes[r0 + 0, c0 + 2], '$corr(D, E)$')
-    set_cell_of_1st_column(axes[r0 + 0, c0], 'BA, $\Delta m=1$')
-    set_cell_of_1st_column(axes[r0 + 1, c0], 'BA, $\Delta m={}$'.format(md2))
-    set_cell_of_1st_column(axes[r0 + 2, c0], 'BAC, $\Delta m=1$')
+    set_cell_of_1st_column(axes[r0 + 0, c0], 'BA, $\Delta m={}$'.format(md1))
+    set_cell_of_1st_column(axes[r0 + 1, c0], 'BAC, $\Delta m={}$'.format(md1))
+    set_cell_of_1st_column(axes[r0 + 2, c0], 'BA, $\Delta m={}$'.format(md2))
     set_cell_of_1st_column(axes[r0 + 3, c0], 'BAC, $\Delta m={}$'.format(md2))
     plt.tight_layout(rect=[0.12, 0, 1.02, 0.95])
     plt.savefig(output)
@@ -362,3 +361,41 @@ def centrality_rank_correlation_2line(size=20):
     set_cell_of_1st_column(axes[r0 + 2, c0], 'BAC, $\Delta m=1$ ')
     set_cell_of_1st_column(axes[r0 + 3, c0], 'BAC, $\Delta m=10$')
     plt.tight_layout(rect=[0.12, 0, 1.02, 0.95])
+
+
+def r_correlation(fn='data/rn-r.txt', ofn='r-correlations.pdf'):
+    df = pd.read_csv(fn, sep=' ')
+
+    fig, axes = plt.subplots(1, 3, figsize=(8, 3), sharey=True)
+    l1, = axes[0].plot(df.index.values + 1, df.db_p.values, color='blue', marker='o', alpha=0.8, label=r"Pearson's $r$")
+    l2, = axes[0].plot(df.index.values + 1, df.db_s.values, color='red', marker='o', alpha=0.8, label=r"Spearman's $\tau$")
+    axes[0].axvline(x=25.5, linestyle='--', alpha=0.8, color='grey')
+    axes[0].axvline(x=44.5, linestyle='--', alpha=0.8, color='grey')
+    axes[0].set_ylim([0, 1])
+    axes[0].text(11.5, 1.03, "Social", horizontalalignment='center', verticalalignment='bottom')
+    axes[0].text(34.5, 1.03, "Tech", horizontalalignment='center', verticalalignment='bottom')
+    axes[0].text(49, 1.03, "Bio", horizontalalignment='center', verticalalignment='bottom')
+    axes[0].set_xlabel(r'(a) $corr(D, B)$')
+    axes[1].plot(df.index.values + 1, df.dc_p.values, color='blue', alpha=0.8, marker='o', label=r"Pearson's $r$")
+    axes[1].plot(df.index.values + 1, df.dc_s.values, color='red', alpha=0.8, marker='o', label=r"Spearman's $\tau$")
+    axes[1].set_ylim([0, 1.01])
+    axes[1].text(11.5, 1.03, "Social", horizontalalignment='center', verticalalignment='bottom')
+    axes[1].text(34.5, 1.03, "Tech", horizontalalignment='center', verticalalignment='bottom')
+    axes[1].text(49, 1.03, "Bio", horizontalalignment='center', verticalalignment='bottom')
+    axes[1].set_xlabel(r'(b) $corr(D, C)$')
+    ax3 = axes[2].twinx()
+    ax3.plot(df.index.values + 1, df.de_p.values, color='blue', alpha=0.8, marker='o')
+    ax3.plot(df.index.values + 1, df.de_s.values, color='red', alpha=0.8, marker='o')
+    axes[2].text(11.5, 1.03, "Social", horizontalalignment='center', verticalalignment='bottom')
+    axes[2].text(34.5, 1.03, "Tech", horizontalalignment='center', verticalalignment='bottom')
+    axes[2].text(49, 1.03, "Bio", horizontalalignment='center', verticalalignment='bottom')
+    axes[2].set_ylim([0, 1.01])
+    axes[2].set_xlabel(r'(c) $corr(D, E)$')
+    ax3.set_ylim([-1.01, 1.01])
+    axes[2].tick_params(left=False)
+
+    # axes[0].legend()
+    axes[0].set_ylabel('Correlation Coefficients')
+    plt.tight_layout(rect=[0,0,1,0.8])
+    fig.legend(handles=[l2, l1], bbox_to_anchor=[0.5, 0.83], loc=3, ncol=2, mode="expand", borderaxespad=1)
+    plt.savefig(ofn)
